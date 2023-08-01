@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:project_june/home.dart';
 
 class LoginPage extends StatelessWidget{
+
+  String uname = "admin";
+  String pwd = "abc123";
+
+  TextEditingController usercontroller = TextEditingController();
+  TextEditingController passcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: const Text("Login Page"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-                padding: EdgeInsets.all(20.0)),
+            Padding(
+                padding: const EdgeInsets.all(20.0)),
             TextField(
-              decoration: InputDecoration(
+              controller: usercontroller,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.people),
                 hintText: "UserName",
@@ -23,8 +32,10 @@ class LoginPage extends StatelessWidget{
               ),
             ),
             TextField(
+              controller: passcontroller,
               obscureText: true,
-              decoration: InputDecoration(
+              obscuringCharacter: '*',
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon:Icon(Icons.visibility_off_sharp),
                 hintText: "Password",
@@ -32,7 +43,18 @@ class LoginPage extends StatelessWidget{
                 labelText: "Password"),
               ),
 
-            ElevatedButton(onPressed: (){}, child: Text("Login"))
+            ElevatedButton(onPressed: () {
+
+              if(uname == usercontroller.text &&  pwd == passcontroller.text) {
+                Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => HomePage()));
+                usercontroller.text="";
+                passcontroller.text="";
+              }else{
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username or Password")));
+              }
+            }, child: const Text("Login"))
           ],
         ),
       ),
