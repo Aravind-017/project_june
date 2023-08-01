@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_june/home.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatelessWidget{
 
@@ -52,7 +53,18 @@ class LoginPage extends StatelessWidget{
                 usercontroller.text="";
                 passcontroller.text="";
               }else{
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Username or Password")));
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //     const SnackBar(content: Text("Invalid Username or Password"),
+                // backgroundColor: Colors.red,));
+                Fluttertoast.showToast(
+                    msg: "Invalid Username or Password",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.TOP,
+                    //timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
               }
             }, child: const Text("Login"))
           ],
