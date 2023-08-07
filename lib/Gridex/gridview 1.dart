@@ -8,7 +8,7 @@ class GridView1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(title: Text("My GridView"),),
-      body: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      body: GridView(gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 60),
       children: List.generate(15, (index) => Card(
         color: Colors.yellow,
         child: Center(
