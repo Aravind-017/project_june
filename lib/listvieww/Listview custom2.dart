@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 void main(){
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: ListView_custom2(),));
 }
@@ -11,10 +11,11 @@ class ListView_custom2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ListView Custom"),
+        title: const Text("ListView Custom"),
       ),
       body: ListView.custom(childrenDelegate: SliverChildBuilderDelegate((context, index) =>
-          Text("hi")))
+          Text("hi"),
+          childCount: 10)),
     );
   }
 }
