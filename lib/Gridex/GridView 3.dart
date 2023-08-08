@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+void main(){
+  runApp(MaterialApp(home: GrideView3(),));
+}
 class GrideView3 extends StatelessWidget {
 
   @override
