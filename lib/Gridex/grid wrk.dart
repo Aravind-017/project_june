@@ -22,7 +22,7 @@ class shrine extends StatelessWidget {
           //Icon(Icons.)
         ],
       ),
-      body: GridView.custom(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+      body: GridView.custom(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           childrenDelegate: SliverChildListDelegate(List.generate(6, (index) =>
           Card(
             child: Center(
